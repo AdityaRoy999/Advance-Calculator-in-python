@@ -27,7 +27,7 @@ To use the calculator, follow these steps:
    ```
 3. Run the calculator:
    ```bash
-   python calculator.py
+   python Advcalculator.py
    ```
 4. Follow the on-screen instructions to perform calculations. Use the menu to choose from various functions.
 ## Requirements

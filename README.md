@@ -32,6 +32,8 @@ To use the calculator, follow these steps:
 4. Follow the on-screen instructions to perform calculations. Use the menu to choose from various functions.
 ## Requirements
 Python 3.8 Atleast recommended
+`itertools`
+`math`
 
 ## Contributing
 Contributions are welcome! If you'd like to contribute to this project, feel free to open a pull request with your changes. Please ensure that your code follows the PEP 8 

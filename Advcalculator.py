@@ -57,7 +57,13 @@ while True:
             a = int(input("Enter number 1: "))
             b = int(input("Enter number 2: "))
             print(math.cbrt(a))
-            print(math.cbrt(b)) 
+            print(math.cbrt(b))
+         def ranroot():
+            a = int(input("Enter the x: "))
+            b = int(input("Enter the y: "))
+            b_div = 1/b
+            print("Your answer for the random root is: ",a**b_div)
+                          
      class fa:
          def factorial():
              a = int(input("Enter the first number: "))
@@ -124,12 +130,14 @@ while True:
              print("Please enter a valid choice next time") 
      elif choice == 3:
          print("---------")
-         print("1. Square root\n2. Cube root" )  
+         print("1. Square root\n2. Cube root\n3. Random root(Yroot(X))" )  
          choice = int(input("Enter your choice: "))
          if choice == 1:
              rootop.sqrt()
          elif choice == 2:
              rootop.cbrt()
+         elif choice == 3:
+             rootop.ranroot()
          else:
              print("Please enter a valid choice next time")
      elif choice == 4:

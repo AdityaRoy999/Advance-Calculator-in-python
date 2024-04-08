@@ -1,8 +1,10 @@
 import math
 from itertools import permutations,combinations
+from sympy import *
+init_printing()
 while True:
      print("---------------O-P-T-I-O-N-S---------------")
-     print("1. Basic Arithmetic Operations\n2. Sin,Cosine,Tan\n3. Root Operations\n4. factorial,permutations,combinations\n5. Log Operations")
+     print("1. Basic Arithmetic Operations\n2. Sin,Cosine,Tan\n3. Root Operations\n4. factorial,permutations,combinations\n5. Log Operations\n6. Derivation and Integration")
      print("-------------------------------------------")
      choice = int(input("Enter the operation you want to do: "))
      class Calculator:
@@ -31,7 +33,7 @@ while True:
             b = int(input("Enter number 2: "))
             exp = a**b
             print("The exponent of the following numbers are: ",exp)
-     class calculator1():
+     class trigno():
          def sin(a):
             a = int(input("Enter number 1: "))
             b = int(input("Enter number 2: "))
@@ -97,9 +99,80 @@ while True:
              print("The answer is: ",math.log10(a))
          def log2():
              a = int(input("Enter the number you wish to find the log(base=2) for: "))
-             print("The answer is:",math.log2(a))                    
-     calculator = Calculator()
-     calculator11 = calculator1()
+             print("The answer is:",math.log2(a))  
+     class deffandint():
+         print("Pre-defined for evaluating expressions\n1.)exponential(start with) - exp\n2).exponential - **\n3.)For trignometric function - trignometric(variable) Eg:- sin(x)\n4.)Root-Operations = sqrt(x),cbrt(y)")
+         def derivative():
+             exp = input("Enter the expression: ")
+             n = int(input("Enter how many times you want to differentiate with a particular variable: "))
+             #pprint(Integral(exp,respect_to),pprint_use_unicode= True)
+             for i in range(n):
+                 respect_to = input("Enter the variable you wish to find the differentiate with: ")
+             #times = int(input("Enter the times you want to different with repect to selected variable: "))             
+             times = int(input("Enter the times you want to different with repect to selected variable: "))
+             t = diff((exp),(respect_to),(times))
+             pprint(t,use_unicode=False)
+         def indefinite_integration():
+             exp = input("Enter the expression: ")
+             x = Symbol('x')
+             y = Symbol('y')
+             z = Symbol('z')
+             n = None
+             variable = input("Input the variable you wish to integrate with: ")
+             if variable == 'x':
+                 n = x
+             elif variable == 'y':
+                 n = y
+             else:
+                 n = z
+             pprint(Integral(exp,n))
+             print("The asnwer to your integral is: ")
+             intg = integrate(exp,n)
+             pprint(intg,use_unicode = False)
+         def definite_integration():
+             print("1. Single Integration\n2. Double Integration\n 3.Triple Integration")
+             choice = int(input("Enter your choice: "))
+             if choice == 1:
+                 exp = input("Enter the expression")
+
+                 variable = input("Enter the variable: ")
+                 start_limit = input("Enter the start limit: ")
+                 stop_limit = input("Enter the stop limit: ")
+                 pprint(Integral(exp,(variable,stop_limit,start_limit)))
+                 pprint((integrate(exp,(variable,stop_limit,start_limit))),use_unicode = False)
+             elif choice == 2:
+                 exp = input("Enter the expression you wish to integrate for: ")
+                 variable = input("Enter the 1st variable you wish to integrate for: ")
+                 start_limit = input("Enter the start limit for {}: ".format(variable))
+                 stop_limit = input("Enter the stop limit for {}: ".format(variable))
+                 print("----------------------------------")
+                 variable1 = input("Enter the 2nd variable you wish to integrate for: ")
+                 start_limit1 = input("Enter the start limit for {}: ".format(variable1))
+                 stop_limit1 = input("Enter the stop limit for {}: ".format(variable1))
+                 #print(Integral(exp,(variable,stop_limit,start_limit),(variable1,start_limit1,stop_limit1)))
+                 pprint(Integral(exp,(variable,stop_limit,start_limit),(variable1,start_limit1,stop_limit1)))
+                 pprint((integrate(exp,(variable,stop_limit,start_limit),(variable1,stop_limit1,start_limit1),use_unicode = True)))
+             elif choice == 3:
+                 exp = input("Enter the expression you wish to integrate for")
+                 variable = input("Enter the 1st variable you wish to integrate for: ")
+                 start_limit = input("Enter the start limit for {}: ".format(variable))
+                 stop_limit = input("Enter the stop limit for {}: ".format(variable))
+                 print("----------------------------------")
+                 variable1 = input("Enter the 2nd variable you wish to integrate for: ")
+                 start_limit1 = input("Enter the start limit for {}: ".format(variable1))
+                 stop_limit1 = input("Enter the stop limit for {}: ".format(variable1))
+                 print("----------------------------------")
+                 variable3 = input("Enter the 3rd variable you wish to integrate for: ")
+                 start_limit3 = input("Enter the start limit for {}: ".format(variable3))
+                 stop_limit3 = input("Enter the stop limit for {}: ".format(variable3))
+                 pprint(Integral(exp,(variable,stop_limit,start_limit),(variable1,start_limit1,stop_limit1),(variable3,stop_limit3,start_limit3)))
+                 print("The answer to your integral is: ")
+                 #pprint((integrate(exp,(variable,stop_limit,start_limit),(variable1,stop_limit1,start_limit1),(variable3,stop_limit3,start_limit3))),use_unicode = False)
+                 pprint(integrate(exp,(variable,stop_limit,start_limit),(variable1,stop_limit1,start_limit1),(variable3,stop_limit3,start_limit3),use_unicode = True)) 
+             else:
+                 print("Invalid option")
+     calculator = Calculator()   
+     calculator11 = trigno()
      if choice == 1:
          print("---------")
          print("1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exponential (a^b)")
@@ -164,6 +237,18 @@ while True:
              logop.log2()         
          else:
              print("Please enter a valid choice next time")
+     elif choice == 6:
+         print("--------")
+         print("1. Differentiation\n2. Indefinite Integration\n3. Definite Integration")
+         choice = int(input("Enter your choice: "))
+         if choice == 1:
+             deffandint.derivative()
+         elif choice == 2:
+             deffandint.indefinite_integration()
+         elif choice == 3:
+             deffandint.definite_integration()
+         else:
+             print("Please enter a valid option next time")         
      else:
          print("Please enter a valid input")
      retry = input("Do you want to try again: ").lower()

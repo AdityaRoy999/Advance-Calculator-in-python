@@ -33,9 +33,9 @@ To use the calculator, follow these steps:
 4. Follow the on-screen instructions to perform calculations. Use the menu to choose from various functions.
 ## Requirements
 • Python 3.8 Atleast recommended
-• `itertools\n`
-• `math`
-• `sympy`
+• itertools
+• math
+• sympy
 
 
 ## Contributing

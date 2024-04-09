@@ -11,6 +11,7 @@ This Python project provides a comprehensive set of mathematical functions, maki
 - **Root Operations:** Square Root, Cube Root.
 - **Advanced Functions:** Factorial, Permutations, Combinations.
 - **Logarithmic Operations:** Natural Logarithm, Base-10 Logarithm, Base-2 Logarithm.
+- **Differentiation and Integration:** Differentiation, Definite and Indefinite Integration.
 
 ## Usage
 
@@ -32,8 +33,10 @@ To use the calculator, follow these steps:
 4. Follow the on-screen instructions to perform calculations. Use the menu to choose from various functions.
 ## Requirements
 • Python 3.8 Atleast recommended
-• `itertools`
-• `math`
+• itertools
+• math
+• sympy
+
 
 ## Contributing
 Contributions are welcome! If you'd like to contribute to this project, feel free to open a pull request with your changes. Please ensure that your code follows the PEP 8 

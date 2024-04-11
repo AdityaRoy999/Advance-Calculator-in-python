@@ -10,6 +10,23 @@ while True:
      print("1. Basic Arithmetic Operations\n2. Sin,Cosine,Tan\n3. Root Operations\n4. factorial,permutations,combinations\n5. Log Operations\n6. Derivation and Integration\n7. matrix")
      print("-------------------------------------------")
      choice = int(input("Enter the operation you want to do: "))
+try:
+    init_printing()
+    while True:
+     try:
+         print("---------------O-P-T-I-O-N-S---------------")
+         print("1. Basic Arithmetic Operations\n2. Sin,Cosine,Tan\n3. Root Operations\n4. factorial,permutations,combinations\n5. Log Operations\n6. Derivation and Integration")
+         print("-------------------------------------------")   
+     except ZeroDivisionError as e:
+        print(e) 
+     except ValueError as e:
+        print(e)
+     except TypeError as e:
+        print(e)
+     except NameError as e:
+        print(e)
+     except FileNotFoundError as e:
+        print(e)       
      class Calculator:
         def add(sum):
             a = int(input("Enter number 1: "))
@@ -30,7 +47,7 @@ while True:
             a = int(input("Enter number 1: "))
             b = int(input("Enter number 2: "))
             div = a/b
-            print ("The division of two numbers:",div)
+            print ("The division of two numbers: ",div)
         def exp(exp):
             a = int(input("Enter number 1: "))
             b = int(input("Enter number 2: "))
@@ -104,8 +121,8 @@ while True:
              a = int(input("Enter the number you wish to find the log(base=2) for: "))
              print("The answer is:",math.log2(a))  
      class deffandint():
-         print("Pre-defined for evaluating expressions\n1.)exponential(start with) - exp\n2).exponential - **\n3.)For trignometric function - trignometric(variable) Eg:- sin(x)\n4.)Root-Operations = sqrt(x),cbrt(y)")
-         def derivative():
+         def derivative(self):
+             print("-------------------------------------\nPre-defined for evaluating expressions\n1.)exponential(start with) - exp\n2).exponential - **\n3.)For trignometric function - trignometric(variable) Eg:- sin(x)\n4.)Root-Operations = sqrt(x),cbrt(y)\n-------------------------------------------")
              exp = input("Enter the expression: ")
              n = int(input("Enter how many times you want to differentiate with a particular variable: "))
              #pprint(Integral(exp,respect_to),pprint_use_unicode= True)
@@ -115,7 +132,8 @@ while True:
              times = int(input("Enter the times you want to different with repect to selected variable: "))
              t = diff((exp),(respect_to),(times))
              pprint(t,use_unicode=False)
-         def indefinite_integration():
+         def indefinite_integration(self):
+             print("-------------------------------------\nPre-defined for evaluating expressions\n1.)exponential(start with) - exp\n2).exponential - **\n3.)For trignometric function - trignometric(variable) Eg:- sin(x)\n4.)Root-Operations = sqrt(x),cbrt(y)\n-------------------------------------------")
              exp = input("Enter the expression: ")
              x = Symbol('x')
              y = Symbol('y')
@@ -132,11 +150,12 @@ while True:
              print("The asnwer to your integral is: ")
              intg = integrate(exp,n)
              pprint(intg,use_unicode = False)
-         def definite_integration():
-             print("1. Single Integration\n2. Double Integration\n 3.Triple Integration")
+         def definite_integration(self):
+             print("-------------------------------------\nPre-defined for evaluating expressions\n1.)exponential(start with) - exp\n2).exponential - **\n3.)For trignometric function - trignometric(variable) Eg:- sin(x)\n4.)Root-Operations = sqrt(x),cbrt(y)\n-------------------------------------------")
+             print("1. Single Integration\n2. Double Integration\n3. Triple Integration")
              choice = int(input("Enter your choice: "))
              if choice == 1:
-                 exp = input("Enter the expression")
+                 exp = input("Enter the expression: ")
 
                  variable = input("Enter the variable: ")
                  start_limit = input("Enter the start limit: ")
@@ -154,9 +173,10 @@ while True:
                  stop_limit1 = input("Enter the stop limit for {}: ".format(variable1))
                  #print(Integral(exp,(variable,stop_limit,start_limit),(variable1,start_limit1,stop_limit1)))
                  pprint(Integral(exp,(variable,stop_limit,start_limit),(variable1,start_limit1,stop_limit1)))
-                 pprint((integrate(exp,(variable,stop_limit,start_limit),(variable1,stop_limit1,start_limit1),use_unicode = True)))
+                 print("The answer to your integral is: ")
+                 pprint((integrate(exp,(variable,stop_limit,start_limit),(variable1,stop_limit1,start_limit1))),use_unicode = False) 
              elif choice == 3:
-                 exp = input("Enter the expression you wish to integrate for")
+                 exp = input("Enter the expression you wish to integrate for: ")
                  variable = input("Enter the 1st variable you wish to integrate for: ")
                  start_limit = input("Enter the start limit for {}: ".format(variable))
                  stop_limit = input("Enter the stop limit for {}: ".format(variable))
@@ -165,13 +185,14 @@ while True:
                  start_limit1 = input("Enter the start limit for {}: ".format(variable1))
                  stop_limit1 = input("Enter the stop limit for {}: ".format(variable1))
                  print("----------------------------------")
-                 variable3 = input("Enter the 3rd variable you wish to integrate for: ")
-                 start_limit3 = input("Enter the start limit for {}: ".format(variable3))
-                 stop_limit3 = input("Enter the stop limit for {}: ".format(variable3))
-                 pprint(Integral(exp,(variable,stop_limit,start_limit),(variable1,start_limit1,stop_limit1),(variable3,stop_limit3,start_limit3)))
+                 variable2 = input("Enter the 3rd variable you wish to integrate for: ")
+                 start_limit2 = input("Enter the start limit for {}: ".format(variable2))
+                 stop_limit2 = input("Enter the stop limit for {}: ".format(variable2))
+                 pprint(Integral(exp,(variable,stop_limit,start_limit),(variable1,start_limit1,stop_limit1),(variable2,stop_limit2,start_limit2)))
+                 print("-----------------------------------")
                  print("The answer to your integral is: ")
                  #pprint((integrate(exp,(variable,stop_limit,start_limit),(variable1,stop_limit1,start_limit1),(variable3,stop_limit3,start_limit3))),use_unicode = False)
-                 pprint(integrate(exp,(variable,stop_limit,start_limit),(variable1,stop_limit1,start_limit1),(variable3,stop_limit3,start_limit3),use_unicode = True)) 
+                 pprint((integrate(exp,(variable,stop_limit,start_limit),(variable1,stop_limit1,start_limit1),(variable2,stop_limit2,start_limit2))))
              else:
                  print("Invalid option")
 
@@ -249,46 +270,31 @@ while True:
             print("Input for matix1: ")
             rows = int(input("Enter the Rows of the Matrix: "))
             column = int(input("Enter the Column of the matrix: "))
-
             print("Plese enter the elements of the matrix in a singl line and seperate by space: ")
-
             elements = list(map(int, input().split()))
             print("Your mtrix1 is:\n")
-
             matrix1 = np.array(elements).reshape(rows, column)
-
             print(matrix1)
             print(" \n ")
-
             print("Input for matix2: ")
             rows = int(input("Enter the Rows of the Matrix: "))
             column = int(input("Enter the Column of the matrix: "))
-
             print("Plese enter the elements of the matrix in a singl line and seperate by space: ")
-
             elements = list(map(int, input().split()))
             print("Your mtrix2 is:\n")
-
             matrix2 = np.array(elements).reshape(rows, column)
-
             print(matrix2)
             print(" \n ")
             if rows == column:
-
                     mul_matrix = np.multiply(matrix1, matrix2)
                     print(f"Your matrix Multiplication is: {mul_matrix}")
             else:
-                    print("Error! Rows and Columns must be same")
-
-         
-
-    
-
-                 
-         
+                    print("Error! Rows and Columns must be same")     
      calculator = Calculator()   
      calculator11 = trigno()
      matrix1 = matrix()
+     deffandint1 = deffandint()
+     choice = int(input("Enter the operation you want to do: "))
      if choice == 1:
          print("---------")
          print("1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exponential (a^b)")
@@ -358,9 +364,9 @@ while True:
          print("1. Differentiation\n2. Indefinite Integration\n3. Definite Integration")
          choice = int(input("Enter your choice: "))
          if choice == 1:
-             deffandint.derivative()
+             deffandint1.derivative()
          elif choice == 2:
-             deffandint.indefinite_integration()
+             deffandint1.indefinite_integration()
          elif choice == 3:
              deffandint.definite_integration()
      elif choice == 7:
@@ -372,6 +378,7 @@ while True:
                 matrix1.substraction()
          elif choice == 3:
                 matrix1.multiply()
+             deffandint1.definite_integration()
          else:
                 print("Invalid option")         
      else:
@@ -383,9 +390,31 @@ while True:
      elif retry == 'y':
          continue
      else:
-         break         
+         break
+except ZeroDivisionError as e:
+    print("The error you are getting is: ")
+    print(e) 
+except ValueError as e:
+    print("The error you are getting is: ")
+    print(e)
+except TypeError as e:
+    print("The error you are getting is: ")
+    print(e)
+except NameError as e:
+    print("The error you are getting is: ")
+    print(e)
+except FileNotFoundError as e:
+    print("The error you are getting is: ")
+    print(e)
+finally:
+    print("please Re-Run the calculator") 
+    print("---------Thank you have a great day----------")
+
      
-print("---------Thank you have a great day----------")
+
+
+
+
 
 
 

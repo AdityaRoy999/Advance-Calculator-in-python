@@ -1,13 +1,13 @@
 import math
 from itertools import permutations,combinations
 from sympy import *
-
+import numpy as np
 try:
     init_printing()
     while True:
      try:
          print("---------------O-P-T-I-O-N-S---------------")
-         print("1. Basic Arithmetic Operations\n2. Sin,Cosine,Tan\n3. Root Operations\n4. factorial,permutations,combinations\n5. Log Operations\n6. Derivation and Integration")
+         print("1. Basic Arithmetic Operations\n2. Sin,Cosine,Tan\n3. Root Operations\n4. factorial,permutations,combinations\n5. Log Operations\n6. Derivation and Integration\n7. Matrix Operations")
          print("-------------------------------------------")   
      except ZeroDivisionError as e:
         print(e) 
@@ -187,9 +187,102 @@ try:
                  pprint((integrate(exp,(variable,stop_limit,start_limit),(variable1,stop_limit1,start_limit1),(variable2,stop_limit2,start_limit2))))
              else:
                  print("Invalid option")
+     class matrix():
+         def addition(self):
+            print("Input for matix1: ")
+            rows = int(input("Enter the Rows of the Matrix: "))
+            column = int(input("Enter the Column of the matrix: "))
+
+            print("Plese enter the elements of the matrix in a single line and seperate by space: ")
+
+            elements = list(map(int, input().split()))
+            print("Your matrix 1 is:\n")
+
+            matrix1 = np.array(elements).reshape(rows, column)
+
+            pprint(matrix1)
+            print(" \n ")
+
+            print("Input for matix2: ")
+            rows = int(input("Enter the Rows of the Matrix: "))
+            column = int(input("Enter the Column of the matrix: "))
+
+            print("Plese enter the elements of the matrix in a singl line and seperate by space: ")
+
+            elements = list(map(int, input().split()))
+            print("Your matrix 2 is:\n")
+
+            matrix2 = np.array(elements).reshape(rows, column)
+
+            pprint(matrix2)
+            print(" \n ")
+    
+            add_matrix = np.add(matrix1, matrix2)
+            print(f"Your matrix addition is: {add_matrix}")
+
+         def substraction(self):
+            print("Input for matix1: ")
+            rows = int(input("Enter the Rows of the Matrix: "))
+            column = int(input("Enter the Column of the matrix: "))
+
+            print("Plese enter the elements of the matrix in a singl line and seperate by space: ")
+
+            elements = list(map(int, input().split()))
+            print("Your mtrix1 is:\n")
+
+            matrix1 = np.array(elements).reshape(rows, column)
+
+            pprint(matrix1)
+            print(" \n ")
+
+            print("Input for matix2: ")
+            rows = int(input("Enter the Rows of the Matrix: "))
+            column = int(input("Enter the Column of the matrix: "))
+
+            print("Plese enter the elements of the matrix in a singl line and seperate by space: ")
+
+            elements = list(map(int, input().split()))
+            print("Your mtrix2 is:\n")
+
+            matrix2 = np.array(elements).reshape(rows, column)
+
+            print(matrix2)
+            print(" \n ")
+            if rows == column:
+                    sub_matrix = np.subtract(matrix1, matrix2)
+                    print(f"Your matrix substraction is: {sub_matrix}")
+            else: 
+                    print("Error! Rows and Columns must be same")
+
+         def multiply(self):
+            print("Input for matix1: ")
+            rows = int(input("Enter the Rows of the Matrix: "))
+            column = int(input("Enter the Column of the matrix: "))
+            print("Plese enter the elements of the matrix in a singl line and seperate by space: ")
+            elements = list(map(int, input().split()))
+            print("Your mtrix1 is:\n")
+            matrix1 = np.array(elements).reshape(rows, column)
+            print(matrix1)
+            print(" \n ")
+            print("Input for matix2: ")
+            rows = int(input("Enter the Rows of the Matrix: "))
+            column = int(input("Enter the Column of the matrix: "))
+            print("Plese enter the elements of the matrix in a singl line and seperate by space: ")
+            elements = list(map(int, input().split()))
+            print("Your mtrix2 is:\n")
+            matrix2 = np.array(elements).reshape(rows, column)
+            print(matrix2)
+            print(" \n ")
+            if rows == column:
+                    mul_matrix = np.multiply(matrix1, matrix2)
+                    print(f"Your matrix Multiplication is: {mul_matrix}")
+            else:
+                    print("Error! Rows and Columns must be same") 
+         
      calculator = Calculator()   
      calculator11 = trigno()
      deffandint1 = deffandint()
+     matrix1 = matrix()
      choice = int(input("Enter the operation you want to do: "))
      if choice == 1:
          print("---------")
@@ -266,7 +359,19 @@ try:
          elif choice == 3:
              deffandint1.definite_integration()
          else:
-             print("Please enter a valid option next time")         
+             print("Please enter a valid option next time")
+     elif choice == 7:
+         print("--------")
+         print("1. Matrix Addition\n2. Matrix Subtraction\n3. Matrix Multiplication")
+         choice = int(input("Enter your choice: ")) 
+         if choice == 1:
+             matrix1.addition()
+         elif choice == 2:
+             matrix1.substraction()
+         elif choice == 3:
+             matrix1.multiply()
+         else:
+             print("Please Enter a valid choice: ")        
      else:
          print("Please enter a valid input")
      retry = input("Do you want to try again: ").lower()

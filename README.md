@@ -38,6 +38,8 @@ To use the calculator, follow these steps:
 • itertools
 • math
 • sympy
+• Numpy
+
 
 
 ## Contributing

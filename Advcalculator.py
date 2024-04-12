@@ -3,11 +3,12 @@ from itertools import permutations,combinations
 from sympy import *
 import numpy as np
 try:
+    x = Symbol('x')
     init_printing()
     while True:
      try:
          print("---------------O-P-T-I-O-N-S---------------")
-         print("1. Basic Arithmetic Operations\n2. Sin,Cosine,Tan\n3. Root Operations\n4. factorial,permutations,combinations\n5. Log Operations\n6. Derivation and Integration\n7. Matrix Operations")
+         print("1. Basic Arithmetic Operations\n2. Sin,Cosine,Tan\n3. Root Operations\n4. factorial,permutations,combinations\n5. Log Operations\n6. Limit,Derivation and Integration\n7. Matrix Operations\n8. Series Expansion and Finite differences")
          print("-------------------------------------------")   
      except ZeroDivisionError as e:
         print(e) 
@@ -112,7 +113,7 @@ try:
          def log2():
              a = int(input("Enter the number you wish to find the log(base=2) for: "))
              print("The answer is:",math.log2(a))  
-     class deffandint():
+     class deffandintandlim():
          def derivative(self):
              print("-------------------------------------\nPre-defined for evaluating expressions\n1.)exponential(start with) - exp\n2).exponential - **\n3.)For trignometric function - trignometric(variable) Eg:- sin(x)\n4.)Root-Operations = sqrt(x),cbrt(y)\n-------------------------------------------")
              exp = input("Enter the expression: ")
@@ -187,6 +188,17 @@ try:
                  pprint((integrate(exp,(variable,stop_limit,start_limit),(variable1,stop_limit1,start_limit1),(variable2,stop_limit2,start_limit2))))
              else:
                  print("Invalid option")
+     class serandfindef():
+         def series_expansion(self):
+             exp = sympify(input("Enter the expression: "))
+             n = int(input("Enter the point you want to compute the series to: "))
+             pprint(exp.series(x, 0, n).removeO())
+         def finite_difference(self):
+             order = int(input("Enter the order: "))  
+             x_list = sympify(list(map(int, input("Enter the integers with space: ").split())))
+             y_list = sympify(list(map(str,input("Enter the parameters you want to use with space: ").split())))
+             print("Your answer is: ")
+             pprint(apply_finite_diff(order,x_list,y_list,0))   
      class matrix():
          def addition(self):
             print("Input for matix1: ")
@@ -281,8 +293,9 @@ try:
          
      calculator = Calculator()   
      calculator11 = trigno()
-     deffandint1 = deffandint()
+     deffandintlim1 = deffandintandlim()
      matrix1 = matrix()
+     serandfindef1 = serandfindef()
      choice = int(input("Enter the operation you want to do: "))
      if choice == 1:
          print("---------")
@@ -350,16 +363,39 @@ try:
              print("Please enter a valid choice next time")
      elif choice == 6:
          print("--------")
-         print("1. Differentiation\n2. Indefinite Integration\n3. Definite Integration")
+         print("1. Limit\n2. Differentiation\n3. Indefinite Integration\n4. Definite Integration")
          choice = int(input("Enter your choice: "))
          if choice == 1:
-             deffandint1.derivative()
+             print("1.Limit(Normal)\n2.Postive Limit\n3.Negative Limit")
+             choice = int(input("Enter a choice: "))
+             if choice == 1:
+                 expr = input("Enter the expression: ")
+                 value = input("Enter the value: ")
+                 print("The answer to {} is".format(expr))
+                 limit1 = limit(expr,x,value)
+                 pprint(limit1)
+             elif choice == 2:
+                 expr = input("Enter the expression: ")
+                 value = input("Enter the value: ")
+                 print("The answer to {} is".format(expr))
+                 limit1 = limit(expr,x,value,'+')
+                 pprint(limit1)
+             elif choice == 3:
+                 expr = input("Enter the expression: ")
+                 value = input("Enter the value: ")
+                 print("The answer to {} is".format(expr))
+                 limit1 = limit(expr,x,value,'-')
+                 pprint(limit1)
+             else:
+                 print("Please choose a valid option")       
          elif choice == 2:
-             deffandint1.indefinite_integration()
+             deffandintandlim.derivative()
          elif choice == 3:
-             deffandint1.definite_integration()
+             deffandintandlim.indefinite_integration()
+         elif choice == 4:
+             deffandintandlim.definite_integration()
          else:
-             print("Please enter a valid option next time")
+             print("Please enter a valid option next time")   
      elif choice == 7:
          print("--------")
          print("1. Matrix Addition\n2. Matrix Subtraction\n3. Matrix Multiplication")
@@ -371,7 +407,16 @@ try:
          elif choice == 3:
              matrix1.multiply()
          else:
-             print("Please Enter a valid choice: ")        
+             print("Please Enter a valid choice: ")
+     elif choice == 8:
+         print("1. Series Expansion\n2. Finite difference")
+         choice = int(input("Enter a choice: "))
+         if choice == 1:
+             serandfindef1.series_expansion()
+         elif choice == 2:
+             serandfindef1.finite_difference()
+         else:
+             print("Please enter a valid choice")                 
      else:
          print("Please enter a valid input")
      retry = input("Do you want to try again: ").lower()

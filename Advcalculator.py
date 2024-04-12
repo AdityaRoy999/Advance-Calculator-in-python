@@ -8,7 +8,7 @@ try:
     while True:
      try:
          print("---------------O-P-T-I-O-N-S---------------")
-         print("1. Basic Arithmetic Operations\n2. Sin,Cosine,Tan\n3. Root Operations\n4. factorial,permutations,combinations\n5. Log Operations\n6. Limit,Derivation and Integration\n7. Matrix Operations\n8. Series Expansion and Finite differences")
+         print("1. Basic Arithmetic Operations\n2. Sin,Cosine,Tan,Cot,Sec,Cosec\n3. Inverse Trigno functions\n4. Root Operations\n5. factorial,permutations,combinations\n6. Log Operations\n7. Limit,Derivation and Integration\n8. Series Expansion and Finite differences\n9. Matrix Operations")
          print("-------------------------------------------")   
      except ZeroDivisionError as e:
         print(e) 
@@ -47,21 +47,52 @@ try:
             exp = a**b
             print("The exponent of the following numbers are: ",exp)
      class trigno():
-         def sin(a):
+         def sin(self):
             a = int(input("Enter number 1: "))
             b = int(input("Enter number 2: "))
             print("The sin(a) = :",round(math.degrees((math.sin(a)))))
             print("The sin(b) = :",round(math.degrees((math.sin(a)))))
-         def cos(a):
+         def cos(self):
             a = int(input("Enter number 1: "))
             b = int(input("Enter number 2: "))
             print("The cos(a) = :",round(math.degrees((math.cos(a)))))
             print("The cos(b) = :",round(math.degrees((math.cos(b)))))
-         def tan(a):
+         def tan(self):
             a = int(input("Enter number 1: "))
             b = int(input("Enter number 2: "))
             print("The tan(a) in degress is = :",round(math.degrees((math.tan(a)))))
-            print("The tan(b) in degrees is = :",round(math.degrees((math.tan(b)))))  
+            print("The tan(b) in degrees is = :",round(math.degrees((math.tan(b)))))
+         def cot(self):
+            a = int(input("Enter number 1: "))
+            b = int(input("Enter number 2: "))
+            print("The cot(a) in degress is = :",round(math.degrees((1/math.atan(a)))))
+            print("The cot(b) in degrees is = :",round(math.degrees((1/math.atan(b)))))
+         def sec(self):
+            a = int(input("Enter number 1: "))
+            b = int(input("Enter number 2: "))
+            print("The sec(a) in degress is = :",round(math.degrees((1/math.cos(a)))))
+            print("The sec(b) in degrees is = :",round(math.degrees((1/math.cos(b)))))
+         def cosec(self):
+            a = int(input("Enter number 1: "))
+            b = int(input("Enter number 2: "))
+            print("The cosec(a) in degress is = :",round(math.degrees((1/math.asin(a)))))
+            print("The cosec(b) in degrees is = :",round(math.degrees((1/math.asin(b)))))
+     class inv_tri_func():
+         def sin_inverse(self):
+             a = int(input("Enter number 1: "))
+             b = int(input("Enter number 2: "))
+             print("The  sin-1(a) in degress is = :",round(math.degrees((math.asin(a)))))
+             print("The  sin-1(b) in degrees is = :",round(math.degrees((math.asin(b)))))
+         def cos_inverse(self):
+             a = int(input("Enter number 1: "))
+             b = int(input("Enter number 2: "))
+             print("The cos-1(a) in degress is = :",round(math.degrees((math.acos(a)))))
+             print("The cos-1(b) in degrees is = :",round(math.degrees((math.acos(b)))))
+         def tan_inverse(self):
+             a = int(input("Enter number 1: "))
+             b = int(input("Enter number 2: "))
+             print("The tan-1(a) in degress is = :",round(math.degrees((math.atan(a)))))
+             print("The tan-1(b) in degrees is = :",round(math.degrees((math.atan(b)))))
      class rootop:
          def sqrt():
             a = int(input("Enter number 1: "))
@@ -114,6 +145,29 @@ try:
              a = int(input("Enter the number you wish to find the log(base=2) for: "))
              print("The answer is:",math.log2(a))  
      class deffandintandlim():
+         def limit(self):
+             print("1.Limit(Normal)\n2.Postive Limit\n3.Negative Limit")
+             choice = int(input("Enter a choice: "))
+             if choice == 1:
+                 expr = input("Enter the expression: ")
+                 value = input("Enter the value: ")
+                 print("The answer to {} is".format(expr))
+                 limit1 = limit(expr,x,value)
+                 pprint(limit1)
+             elif choice == 2:
+                 expr = input("Enter the expression: ")
+                 value = input("Enter the value: ")
+                 print("The answer to {} is".format(expr))
+                 limit1 = limit(expr,x,value,'+')
+                 pprint(limit1)
+             elif choice == 3:
+                 expr = input("Enter the expression: ")
+                 value = input("Enter the value: ")
+                 print("The answer to {} is".format(expr))
+                 limit1 = limit(expr,x,value,'-')
+                 pprint(limit1)
+             else:
+                 print("Please choose a valid option")     
          def derivative(self):
              print("-------------------------------------\nPre-defined for evaluating expressions\n1.)exponential(start with) - exp\n2).exponential - **\n3.)For trignometric function - trignometric(variable) Eg:- sin(x)\n4.)Root-Operations = sqrt(x),cbrt(y)\n-------------------------------------------")
              exp = input("Enter the expression: ")
@@ -296,6 +350,7 @@ try:
      deffandintlim1 = deffandintandlim()
      matrix1 = matrix()
      serandfindef1 = serandfindef()
+     inv_tri_f = inv_tri_func()
      choice = int(input("Enter the operation you want to do: "))
      if choice == 1:
          print("---------")
@@ -315,7 +370,7 @@ try:
              print("Please enter a valid choice next time")
      elif choice == 2:
          print("---------")
-         print("1. Sin\n2. Cos\n3. Tan")
+         print("1. Sin\n2. Cos\n3. Tan\n.4. cot\n5. sec\n6. cosec")
          choice = int(input("Enter Your choice: "))
          if choice == 1:
              calculator11.sin()
@@ -323,9 +378,26 @@ try:
              calculator11.cos()
          elif choice == 3:
              calculator11.tan()
+         elif choice == 4:
+             calculator11.cot()
+         elif choice == 5:
+             calculator11.sec()
+         elif choice == 6:
+             calculator11.cosec()
          else:
              print("Please enter a valid choice next time") 
      elif choice == 3:
+         print("1.Sin Inverse\n2.Cos Inverse\n3.Tan Inverse")
+         choice = int(input("Enter the choice: "))
+         if choice == 1:
+             inv_tri_f.sin_inverse()
+         elif choice == 2:
+             inv_tri_f.cos_inverse()
+         elif choice == 3:
+             inv_tri_f.tan_inverse()
+         else:
+            print("Please Enter a valid choice")
+     elif choice == 4:
          print("---------")
          print("1. Square root\n2. Cube root\n3. Random root(Yroot(X))" )  
          choice = int(input("Enter your choice: "))
@@ -337,7 +409,7 @@ try:
              rootop.ranroot()
          else:
              print("Please enter a valid choice next time")
-     elif choice == 4:
+     elif choice == 5:
          print("---------")
          print("1. Factorial\n2. Permutations\n3. Combinations")
          choice = int(input("Enter the choice: "))
@@ -349,7 +421,7 @@ try:
              fa.combinations()
          else:
              print("Please enter a valid choice next time")
-     elif choice == 5:
+     elif choice == 6:
          print("---------")
          print("1. Natural Log\n2. Log with base 10\n3. Log with base 2")
          choice = int(input("Enter your choice: "))
@@ -360,43 +432,31 @@ try:
          elif choice == 3:
              logop.log2()         
          else:
-             print("Please enter a valid choice next time")
-     elif choice == 6:
+             print("Please enter a valid choice next time")   
+     elif choice == 7:
          print("--------")
          print("1. Limit\n2. Differentiation\n3. Indefinite Integration\n4. Definite Integration")
          choice = int(input("Enter your choice: "))
          if choice == 1:
-             print("1.Limit(Normal)\n2.Postive Limit\n3.Negative Limit")
-             choice = int(input("Enter a choice: "))
-             if choice == 1:
-                 expr = input("Enter the expression: ")
-                 value = input("Enter the value: ")
-                 print("The answer to {} is".format(expr))
-                 limit1 = limit(expr,x,value)
-                 pprint(limit1)
-             elif choice == 2:
-                 expr = input("Enter the expression: ")
-                 value = input("Enter the value: ")
-                 print("The answer to {} is".format(expr))
-                 limit1 = limit(expr,x,value,'+')
-                 pprint(limit1)
-             elif choice == 3:
-                 expr = input("Enter the expression: ")
-                 value = input("Enter the value: ")
-                 print("The answer to {} is".format(expr))
-                 limit1 = limit(expr,x,value,'-')
-                 pprint(limit1)
-             else:
-                 print("Please choose a valid option")       
+              deffandintlim1.limit()       
          elif choice == 2:
-             deffandintandlim.derivative()
+             deffandintlim1.derivative()
          elif choice == 3:
-             deffandintandlim.indefinite_integration()
+             deffandintlim1.indefinite_integration()
          elif choice == 4:
-             deffandintandlim.definite_integration()
+             deffandintlim1.definite_integration()
          else:
-             print("Please enter a valid option next time")   
-     elif choice == 7:
+             print("Please enter a valid option next time")
+     elif choice == 8:
+         print("1. Series Expansion\n2. Finite difference")
+         choice = int(input("Enter a choice: "))
+         if choice == 1:
+             serandfindef1.series_expansion()
+         elif choice == 2:
+             serandfindef1.finite_difference()
+         else:
+             print("Please enter a valid choice")
+     elif choice == 9:
          print("--------")
          print("1. Matrix Addition\n2. Matrix Subtraction\n3. Matrix Multiplication")
          choice = int(input("Enter your choice: ")) 
@@ -408,17 +468,6 @@ try:
              matrix1.multiply()
          else:
              print("Please Enter a valid choice: ")
-     elif choice == 8:
-         print("1. Series Expansion\n2. Finite difference")
-         choice = int(input("Enter a choice: "))
-         if choice == 1:
-             serandfindef1.series_expansion()
-         elif choice == 2:
-             serandfindef1.finite_difference()
-         else:
-             print("Please enter a valid choice")                 
-     else:
-         print("Please enter a valid input")
      retry = input("Do you want to try again: ").lower()
      if retry == 'yes':
          continue

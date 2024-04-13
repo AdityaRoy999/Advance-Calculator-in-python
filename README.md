@@ -7,11 +7,19 @@ This Python project provides a comprehensive set of mathematical functions, maki
 ## Features
 
 - **Basic Arithmetic Operations:** Addition, Subtraction, Multiplication, Division, Exponentiation.
-- **Trigonometric Functions:** Sine, Cosine, Tangent.
-- **Root Operations:** Square Root, Cube Root.
+- **Trigonometric Functions:** Sine(sin), Cosine(cos), Tangent(tan), Cotan(cot), Secant(sec), Cosecant(cosec).
+- **Inverse Trignomtric Functions:**  sin-1x, Cos-1x, Tan-1x.
+- **Root Operations:** Square Root, Cube Root, Random Root(y√x).
 - **Advanced Functions:** Factorial, Permutations, Combinations.
 - **Logarithmic Operations:** Natural Logarithm, Base-10 Logarithm, Base-2 Logarithm.
-- **Differentiation and Integration:** Differentiation, Definite and Indefinite Integration.
+- **Limit,Differentiation and Integration:** Limit,Differentiation, Definite and Indefinite Integration.
+- **Matrix Operations:** Matrix Addition,Subtraction and Multiplication.
+- **Series Expansion and Finite Differences:** Series Expansion and Finite Differences.
+
+
+## Code Components
+- Code components consist of code-snippets  which is used to create the calculator and is broken into steps so that the user can understand how the calculator is working easily.
+
 
 ## Usage
 
@@ -36,6 +44,8 @@ To use the calculator, follow these steps:
 • itertools
 • math
 • sympy
+• Numpy
+
 
 
 ## Contributing

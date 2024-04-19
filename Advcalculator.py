@@ -8,7 +8,7 @@ try:
     while True:
      try:
          print("---------------O-P-T-I-O-N-S---------------")
-         print("1. Basic Arithmetic Operations\n2. Sin,Cosine,Tan,Cot,Sec,Cosec\n3. Inverse Trigno functions\n4. Root Operations\n5. factorial,permutations,combinations\n6. Log Operations\n7. Limit,Derivation and Integration\n8. Series Expansion and Finite differences\n9. Matrix Operations")
+         print("1. Basic Arithmetic Operations\n2. Sin,Cosine,Tan,Cot,Sec,Cosec\n3. Inverse Trigno functions\n4. Root Operations\n5. factorial,permutations,combinations\n6. Log Operations\n7. Limit,Derivation and Integration\n8. Series Expansion and Finite differences\n9. Matrix Operations\n10. Simplification")
          print("-------------------------------------------")   
      except ZeroDivisionError as e:
         print(e) 
@@ -113,7 +113,7 @@ try:
      class fa:
          def factorial():
              a = int(input("Enter the first number: "))
-             b = int(input("Enter the first number: "))
+             b = int(input("Enter the second number: "))
              if a>0 and b>0:
                  print("The factorial of the first number is :",math.factorial(a)) 
                  print("The factorial of second number is :",math.factorial(b))
@@ -344,13 +344,20 @@ try:
                     print(f"Your matrix Multiplication is: {mul_matrix}")
             else:
                     print("Error! Rows and Columns must be same") 
-         
+     class ssimplify:
+         def simplify(self):
+            exp = input("Enter the expression to simplify: ")
+            print("Your answer is:")
+            pprint(simplify(exp))
+            
+        
      calculator = Calculator()   
      calculator11 = trigno()
      deffandintlim1 = deffandintandlim()
      matrix1 = matrix()
      serandfindef1 = serandfindef()
      inv_tri_f = inv_tri_func()
+     simple = ssimplify()
      choice = int(input("Enter the operation you want to do: "))
      if choice == 1:
          print("---------")
@@ -468,6 +475,8 @@ try:
              matrix1.multiply()
          else:
              print("Please Enter a valid choice: ")
+     elif choice == 10:
+            simple.simplify()
      retry = input("Do you want to try again: ").lower()
      if retry == 'yes':
          continue

@@ -6,11 +6,12 @@ from Factorial_combinations_permutations import fa
 from Log_operations import logop
 from calculus import deffandintandlim,serandfindef
 from matrix import matrix
+from simplify import ssimplify
 
 try:
     while True:
         print("---------------O-P-T-I-O-N-S---------------")
-        print("1. Basic Arithmetic Operations\n2. Sin,Cosine,Tan,Cot,Sec,Cosec\n3. Inverse Trigno functions\n4. Root Operations\n5. factorial,permutations,combinations\n6. Log Operations\n7. Limit,Derivation and Integration\n8. Series Expansion and Finite differences\n9. Matrix Operations")
+        print("1. Basic Arithmetic Operations\n2. Sin,Cosine,Tan,Cot,Sec,Cosec\n3. Inverse Trigno functions\n4. Root Operations\n5. factorial,permutations,combinations\n6. Log Operations\n7. Limit,Derivation and Integration\n8. Series Expansion and Finite differences\n9. Matrix Operations\n10. Simplification")
         print("-------------------------------------------")
         calculator = Calculator()   
         calculator11 = trigno()
@@ -18,6 +19,7 @@ try:
         matrix1 = matrix()
         serandfindef1 = serandfindef()
         inv_tri_f = inv_tri_func()
+        simple = ssimplify()
         choice = int(input("Enter the operation you want to do: "))
         if choice == 1:
             print("---------")
@@ -135,8 +137,9 @@ try:
                 matrix1.multiply()
             else:
                 print("Please Enter a valid choice: ")
+        elif choice == 10:
+            simple.simplify()
         retry = input("Do you want to try again: ").lower()
-        retry = retry = input("Do you want to try again: ").lower()
         if retry == 'yes':
             continue
         elif retry == 'y':

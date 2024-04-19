@@ -73,11 +73,12 @@ class deffandintandlim():
                  print("----------------------------------")
                  variable1 = input("Enter the 2nd variable you wish to integrate for: ")
                  start_limit1 = input("Enter the start limit for {}: ".format(variable1))
-                 stop_limit1 = input("Enter the stop limit for {}: ".format(variable1))
+                 stop_limit1 = input("Enter the stop limit for {}: ".format(variable1))     
                  #print(Integral(exp,(variable,stop_limit,start_limit),(variable1,start_limit1,stop_limit1)))
                  pprint(Integral(exp,(variable,stop_limit,start_limit),(variable1,start_limit1,stop_limit1)))
                  print("The answer to your integral is: ")
-                 pprint((integrate(exp,(variable,stop_limit,start_limit),(variable1,stop_limit1,start_limit1))),use_unicode = False) 
+                 pprint((integrate(exp,(variable,stop_limit,start_limit),(variable1,stop_limit1,start_limit1))),use_unicode = False)
+                  
              elif choice == 3:
                  exp = input("Enter the expression you wish to integrate for: ")
                  variable = input("Enter the 1st variable you wish to integrate for: ")

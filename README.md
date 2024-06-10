@@ -4,6 +4,16 @@
 
 This Python project provides a comprehensive set of mathematical functions, making it an ideal tool for various calculations. From basic arithmetic operations to advanced mathematical functions, this calculator has got you covered!
 
+## Table of Contents
+
+- [Features](#features)
+- [Code Components](#code-components)
+- [Usage](#usage)
+- [Requirements](#requirements)
+- [Contributing](#contributing)
+- [License](#license)
+
+
 ## Features
 
 - **Basic Arithmetic Operations:** Addition, Subtraction, Multiplication, Division, Exponentiation.
